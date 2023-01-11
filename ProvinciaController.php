@@ -2,7 +2,7 @@
 class ProvinciaController
 {
     private $connection;
-    public static $KEY = "Provincia";
+    public static $KEY = "provincia";
     function __construct($connection)
     {
         $this->connection = $connection;
