@@ -52,6 +52,8 @@ class ProvinciaController
             $item = new Provincia();
             $item->loadfromJSON($json_text);
             return $item;   
+        }else{
+            return null;
         }
              
     }
