@@ -48,13 +48,8 @@ class ProvinciaController
         
         $item = null;
         $json_text = $this->connection->hget(ProvinciaController::$KEY, $id);
-        if ($json_text != null) {
-            $item = new Provincia();
-            $item->loadfromJSON($json_text);
-        }
-        if($item->$id == null){
-            $item = new Provincia("A",2,"",false);
-        }
+        $item = new Provincia("AA", 32, ['wad',"dad"], true);
+        
         return $item;        
     }
 }
