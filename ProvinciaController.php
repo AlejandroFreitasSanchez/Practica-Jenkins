@@ -53,7 +53,7 @@ class ProvinciaController
             $item->loadfromJSON($json_text);
             return $item;   
         }else{
-            return new Provincia(1);
+            return new Provincia("Null", 1);
         }
              
     }
