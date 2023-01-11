@@ -53,7 +53,7 @@ class ProvinciaController
             $item->loadfromJSON($json_text);
         }
         if($item->$id == null){
-            $item->setId(1000);
+            $item = new Provincia("A",2,"",false);
         }
         return $item;        
     }
