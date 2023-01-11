@@ -51,8 +51,9 @@ class ProvinciaController
         if ($json_text != null) {
             $item = new Provincia();
             $item->loadfromJSON($json_text);
-        }else{
-            $item = new Provincia("Null",1, "", "false");
+        }
+        if($item->$id == null){
+            $item->setId(1000);
         }
         return $item;        
     }
