@@ -45,12 +45,14 @@ class ProvinciaController
     }
     function getById(int $id): ? Provincia
     {
+
         $item = null;
         $json_text = $this->connection->hget(ProvinciaController::$KEY, $id);
         if ($json_text != null) {
             $item = new Provincia();
             $item->loadfromJSON($json_text);
+            return $item;   
         }
-        return $item;        
+             
     }
 }
