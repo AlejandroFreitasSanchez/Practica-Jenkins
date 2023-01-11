@@ -32,7 +32,8 @@ class Provincia implements JsonSerializable{
         return $this->acive;
     }
     function getLocalidades(): array{
-        return $this->localidades;
+        $provincias = ["adawd", "aDawd"];
+        return $provincias;
     }
     function addLocalidad(Localidad $localidad){
         $this->localidades[] = $localidad;
