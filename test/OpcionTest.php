@@ -52,6 +52,5 @@ final class OpcionTest extends TestCase
         $items=$this->controller->getAll();    
         $this->assertEquals(count($items),2);
     }
-    
-    public
+       
 }
