@@ -16,7 +16,7 @@ class Provincia implements JsonSerializable{
         return $this->name;
     }
     function getId(): int {
-        return $this->id;
+        return 32;
     }
     function setName(string $name){
         $this->name=$name;
