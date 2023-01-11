@@ -3,6 +3,7 @@ class Provincia implements JsonSerializable{
     protected $name;
     protected $id;
     protected $localidades ;
+    protected $acive;
     function __construct(){
     }
     function loadfromJSON(string $json){
@@ -24,6 +25,12 @@ class Provincia implements JsonSerializable{
         $this->id=$id;
     }
 
+    function setAcive(bool $n){
+        $this->acive=$n;
+    }
+    function getAcive(){
+        return $this->acive;
+    }
     function getLocalidades(): array{
         return $this->localidades;
     }
