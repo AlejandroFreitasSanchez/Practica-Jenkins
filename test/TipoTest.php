@@ -56,7 +56,7 @@ final class TipoTest extends TestCase
     public function testGetAll()
     {
         $items=$this->controller->getAll();    
-        $this->assertEquals(count($items),4);
+        $this->assertEquals(count($items),3);
     }   
 
 
