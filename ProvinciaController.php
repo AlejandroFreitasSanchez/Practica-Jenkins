@@ -43,7 +43,7 @@ class ProvinciaController
         }
         return $items;
     }
-    function getById(int $id): ? Provincia
+    function getById(int $id):  Provincia|null
     {
 
         $item = null;
@@ -53,7 +53,7 @@ class ProvinciaController
             $item->loadfromJSON($json_text);
             return $item;   
         }else{
-            return new Provincia("Null", 1);
+            return null;
         }
              
     }
