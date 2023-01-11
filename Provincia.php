@@ -34,7 +34,7 @@ class Provincia implements JsonSerializable{
     function getLocalidades(): array{
         return $this->localidades;
     }
-    function addLocalidad(string $localidad){
+    function addLocalidad(Localidad $localidad){
         $this->localidades[] = $localidad;
     }
     public function  jsonSerialize()
