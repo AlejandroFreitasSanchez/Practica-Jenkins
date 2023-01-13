@@ -45,7 +45,7 @@ class Provincia implements JsonSerializable
     {
         return $this->localidades;
     }
-    function getLocalidadById(int $id): Localidad|null
+    function getLocalidadById(int $id): Localidad
     {
         $result = null;
         foreach($this->localidades as $localidad){
@@ -56,7 +56,7 @@ class Provincia implements JsonSerializable
         }
         return $result;
     }
-    function getLocalidadByName(string $name): Localidad|null
+    function getLocalidadByName(string $name): Localidad
     {
         $result = null;
         foreach($this->localidades as $localidad){
