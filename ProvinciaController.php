@@ -74,7 +74,7 @@ class ProvinciaController
 
     function findLocalidad(string $name): Localidad
     {
-        $item = null;
+        $item = new Localidad();
         foreach($this->getAll() as $localidad){
             if($localidad->name == $name){
                 $item = new Localidad($localidad->id, $localidad->name);
