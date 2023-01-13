@@ -21,11 +21,13 @@ class ProvinciaController
     function remove(int $id): bool
     {
         $tempo = $this->connection->hdel(ProvinciaController::$KEY, $id);
-        if ($tempo != null)
-            return
-                true;
-        else
+    
+        if ($tempo != null){
+            return true;
+        }else{
             return false;
+        }
+            
     }
 
     function getAll(): ?array
