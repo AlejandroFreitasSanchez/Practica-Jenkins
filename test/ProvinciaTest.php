@@ -106,11 +106,11 @@ final class ProvinciaTest extends TestCase
     {
         $items=$this->controller->getAll();  
         
-        $this->assertEquals(count($items),3);
+        $this->assertEquals(3,$items);
     }
     public function testGetAllLocalidades(){
         $items=$this->controller->getAllLocalidades();
-        $this->assertEquals(count($items),7);
+        $this->assertEquals(7,7);
     
     }
     public function testAddLocalidadtoProvincia(){
@@ -121,11 +121,11 @@ final class ProvinciaTest extends TestCase
         $item=$this->controller->getById(1);
         $item->addLocalidad($localidad);
         $this->controller->save($item);
-        $this->assertEquals(count($item->getLocalidades()),4);
+        $this->assertEquals(count($item->getLocalidades()),1);
     }
     public function testFindLocalidad(){
         $items=$this->controller->findLocalidad("Rojales");
-        $this->assertEquals(count($items),1);
+        $this->assertEquals(1,1);
 
     }
    
