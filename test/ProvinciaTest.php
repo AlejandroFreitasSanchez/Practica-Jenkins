@@ -89,7 +89,7 @@ final class ProvinciaTest extends TestCase
     }
     public function testGetItem()
     {
-        $item = $this->controller->getById(1);
+        $item = $this->controller->getById(3);
         $this->assertEquals(1, $item->getId());
     }
     public function testNoGetItem()

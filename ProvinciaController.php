@@ -66,6 +66,7 @@ class ProvinciaController
                 $tempo=new Provincia();
                 $tempo->loadfromJSON($json_text);
                 array_push($items,$tempo->getLocalidades());
+                
             }
         }
         return $items;

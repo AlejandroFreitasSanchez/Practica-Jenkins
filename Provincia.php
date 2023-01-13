@@ -11,7 +11,6 @@ class Provincia implements JsonSerializable
     }
     function loadfromJSON(string $json)
     {
-
         $tempo = json_decode($json, true);
         $this->id = $tempo["id"];
         $this->name = $tempo["name"];
