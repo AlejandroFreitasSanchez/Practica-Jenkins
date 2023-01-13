@@ -21,7 +21,7 @@ final class ProvinciaTest extends TestCase
         $item = new Provincia();
         $item->setId(1);
         $item->setName("Alicante");
-        $item->setAcive(true);
+        $item->setActive(true);
         $localidad= new Localidad();
         $localidad->setId(1);
         $localidad->setName("Rojales");
