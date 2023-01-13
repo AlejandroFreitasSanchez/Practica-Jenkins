@@ -43,7 +43,7 @@ final class ProvinciaTest extends TestCase
         $item = new Provincia();
         $item->setId(2);
         $item->setName("Murcia");
-        $item->setAcive(true);
+        $item->setActive(true);
 
         $localidad= new Localidad();
         $localidad->setId(4);
@@ -64,7 +64,7 @@ final class ProvinciaTest extends TestCase
         $item = new Provincia();
         $item->setId(3);
         $item->setName("Albacete");
-        $item->setAcive(true);
+        $item->setActive(true);
 
         $localidad= new Localidad();
         $localidad->setId(1);
