@@ -2,7 +2,7 @@
 
 class Provincia implements JsonSerializable
 {
-    protected $name;
+    public $name;
     protected $id;
     protected $localidades = [];
     protected $active;
