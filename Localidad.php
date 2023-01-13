@@ -1,6 +1,6 @@
 <?php
 class Localidad implements JsonSerializable{
-    protected $name;
+    public $name;
     protected $id;
     protected $active;
     function __construct(){
