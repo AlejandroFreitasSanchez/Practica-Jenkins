@@ -72,15 +72,15 @@ class ProvinciaController
         return $items;
     }
 
-    function findLocalidad(string $name): Localidad
+    function findLocalidad(string $name): array
     {
-        $item = new Localidad();
+        $items = [];
         foreach($this->getAll() as $localidad){
             if($localidad->name == $name){
                 $item = new Localidad($localidad->id, $localidad->name);
-                return $item;
+                array_push($items, $item);
             }
         }
-        return $item;
+        return $items;
     }
 }
