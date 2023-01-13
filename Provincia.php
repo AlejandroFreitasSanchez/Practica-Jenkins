@@ -1,51 +1,100 @@
 <?php
-class Provincia implements JsonSerializable{
+
+class Provincia implements JsonSerializable
+{
     protected $name;
     protected $id;
-    protected $localidades ;
-    protected $acive;
-    function __construct(){
+    protected $localidades = [];
+    protected $active;
+    function __construct()
+    {
     }
-    function loadfromJSON(string $json){
+    function loadfromJSON(string $json)
+    {
 
-        $tempo=json_decode($json,true);
-        $this->id=$tempo["id"];
-        $this->name=$tempo["name"];
+        $tempo = json_decode($json, true);
+        $this->id = $tempo["id"];
+        $this->name = $tempo["name"];
     }
-    function getName(): string{
+    function getName(): string
+    {
         return $this->name;
     }
-    function getId(): int {
+    function getId(): int
+    {
         return 32;
     }
-    function setName(string $name){
-        $this->name=$name;
+    function setName(string $name)
+    {
+        $this->name = $name;
     }
-    function setId(int $id){
-        $this->id=$id;
+    function setId(int $id)
+    {
+        $this->id = $id;
     }
 
-    function setAcive(bool $n){
-        $this->acive=$n;
+    function setActive(bool $n)
+    {
+        $this->active = $n;
     }
-    function getAcive(){
-        return $this->acive;
+    function getActive()
+    {
+        return $this->active;
     }
-    function getLocalidades(): array{
-        $provincias = ["adawd", "aDawd"];
-        return $provincias;
+    function getLocalidades(): array
+    {
+        return $this->localidades;
     }
-    
-    function addLocalidad(Localidad $localidad){
+    function getLocalidadById(int $id): Localidad|null
+    {
+        $result = null;
+        foreach($this->localidades as $localidad){
+            if($localidad->id == $id){
+                $result = $localidad;
+                return $result;
+            }
+        }
+        return $result;
+    }
+    function getLocalidadByName(string $name): Localidad|null
+    {
+        $result = null;
+        foreach($this->localidades as $localidad){
+            if($localidad->name == $name){
+                $result = $localidad;
+                return $result;
+            }
+        }
+        return $result;
+    }
+    function removeLocalidadByName(string $name){
+        
+        foreach($this->localidades as $localidad){
+            if($localidad->name == $name){
+                unset($this->localidades[$localidad]);
+            }
+        }
+        
+    }
+
+    function removeLocalidadById(int $id){
+        foreach($this->localidades as $localidad){
+            if($localidad->id == $id){
+                unset($this->localidades[$localidad]);
+            }
+        }
+    }
+    function addLocalidad(Localidad $localidad)
+    {
         $this->localidades[] = $localidad;
     }
     public function  jsonSerialize()
     {
-        return 
-        [
-            'id'   => $this->getId(),
-            'name' => $this->getName(),
-            'localidades' => $this->getLocalidades()
-        ];
+        return
+            [
+                'id'   => $this->getId(),
+                'name' => $this->getName(),
+                'localidades' => $this->getLocalidades()
+            ];
     }
-} 
+}

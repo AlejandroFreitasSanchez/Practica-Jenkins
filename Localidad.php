@@ -2,6 +2,7 @@
 class Localidad implements JsonSerializable{
     protected $name;
     protected $id;
+    protected $active;
     function __construct(){
     }
     function loadfromJSON(string $json){
@@ -15,6 +16,12 @@ class Localidad implements JsonSerializable{
     }
     function getId(): int {
         return $this->id;
+    }
+    function getActive(): bool{
+        return $this->active;
+    }
+    function setActive(bool $a){
+        $this->active=$a;
     }
     function setName(string $name){
         $this->name=$name;

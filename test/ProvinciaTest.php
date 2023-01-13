@@ -89,8 +89,8 @@ final class ProvinciaTest extends TestCase
     }
     public function testGetItem()
     {
-        $item = $this->controller->getById(32);
-        $this->assertEquals(32, $item->getId());
+        $item = $this->controller->getById(1);
+        $this->assertEquals(1, $item->getId());
     }
     public function testNoGetItem()
     {
@@ -100,15 +100,33 @@ final class ProvinciaTest extends TestCase
     }
     public function testDeleteItem()
     {
-        $this->assertTrue(true);
+        $this->assertTrue($this->controller->remove(5));
     }
     public function testGetAll()
     {
         $items=$this->controller->getAll();  
         
-        $this->assertEquals(count($items),4);
+        $this->assertEquals(count($items),3);
     }
-  
-   
+    public function testGetAllLocalidades(){
+        $items=$this->controller->getAllLocalidades();
+        $this->assertEquals(count($items),7);
+    
+    }
+    public function testAddLocalidadtoProvincia(){
+        
+        $localidad= new Localidad();
+        $localidad->setId(10);
+        $localidad->setName("Orihuela");
+        $item=$this->controller->getById(1);
+        $item->addLocalidad($localidad);
+        $this->controller->save($item);
+        $this->assertEquals(count($item->getLocalidades()),4);
+    }
+    public function testFindLocalidad(){
+        $items=$this->controller->findLocalidad("Rojales");
+        $this->assertEquals(count($items),1);
+
+    }
    
 }

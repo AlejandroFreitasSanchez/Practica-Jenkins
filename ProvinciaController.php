@@ -47,9 +47,39 @@ class ProvinciaController
     {
         
         $item = null;
-        $json_text = $this->connection->hget(ProvinciaController::$KEY, $id);
-        $item = new Provincia("AA", 32, ['wad',"dad"], true);
+        $json_text = $this->connection->hget(TipoController::$KEY, $id);
+        if ($json_text != null) {
+            $item = new Provincia();
+            $item->loadfromJSON($json_text);
+        }
+        return $item;          
+    }
+
+    function getAllLocalidades(): array
+    {
+        $items=null;
         
-        return $item;        
+        $elements=$this->connection->hgetAll(ProvinciaController::$KEY);
+        if($elements!=null){
+            $items= array();
+            foreach ($elements as $json_text){
+                $tempo=new Provincia();
+                $tempo->loadfromJSON($json_text);
+                array_push($items,$tempo->getLocalidades());
+            }
+        }
+        return $items;
+    }
+
+    function findLocalidad(string $name): Localidad
+    {
+        $item = null;
+        foreach($this->getAll() as $localidad){
+            if($localidad->name == $name){
+                $item = new Localidad($localidad->id, $localidad->name);
+                return $item;
+            }
+        }
+        return $item;
     }
 }
