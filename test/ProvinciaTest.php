@@ -106,11 +106,11 @@ final class ProvinciaTest extends TestCase
     {
         $items=$this->controller->getAll();  
         
-        $this->assertEquals(3,count($items));
+        $this->assertEquals(4,count($items));
     }
     public function testGetAllLocalidades(){
         $items=$this->controller->getAllLocalidades();
-        $this->assertEquals(7,7);
+        $this->assertEquals(7,count($items));
     
     }
     public function testAddLocalidadtoProvincia(){
